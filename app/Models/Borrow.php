@@ -13,4 +13,13 @@ class Borrow extends Model
         'return_date',
         'status',
     ];
+    public function book()
+    {
+        return $this->belongsTo(Book::class);
+    }
+    public function reader()
+    {
+        return $this->belongsTo(Reader::class);
+    }
+
 }
