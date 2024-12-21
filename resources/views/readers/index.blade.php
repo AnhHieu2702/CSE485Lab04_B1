@@ -46,5 +46,8 @@
                 @endforelse
             </tbody>
         </table>
+        <div class="d-flex justify-content-center mt-3">
+        {{ $readers->onEachSide(1)->links('pagination::bootstrap-5') }}
+        </div>
     </div>
 @endsection
