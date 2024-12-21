@@ -12,7 +12,7 @@
                 <label for="book_id">Quyển sách</label>
                 <select name="book_id" id="book_id" class="form-control">
                     @foreach ($books as $book)
-                        <option value="{{ $book->id }}">{{ $book->title }}</option>
+                        <option value="{{ $book->id }}">{{ $book->name }}</option>
                     @endforeach
                 </select>
                 @error('book_id')
@@ -22,9 +22,9 @@
 
             <div class="form-group">
                 <label for="user_id">Người mượn</label>
-                <select name="user_id" id="user_id" class="form-control">
-                    @foreach ($users as $user)
-                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                <select name="reader_id" id="reader_id" class="form-control">
+                @foreach($readers as $reader)
+                        <option value="{{ $reader->id }}">{{ $reader->name }}</option>
                     @endforeach
                 </select>
                 @error('user_id')

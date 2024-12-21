@@ -27,8 +27,8 @@
                 @foreach ($borrows as $borrow)
                     <tr>
                         <td>{{ $borrow->id }}</td>
-                        <td>{{ $borrow->book->title }}</td>
-                        <td>{{ $borrow->user->name }}</td>
+                        <td>{{ $borrow->book->name }}</td>
+                        <td>{{ $borrow->reader->name }}</td>
                         <td>{{ $borrow->borrow_date }}</td>
                         <td>{{ $borrow->return_date }}</td>
                         <td>
@@ -37,7 +37,7 @@
                             <form action="{{ route('borrows.destroy', $borrow->id) }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Xóa</button>
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</button>
                             </form>
                         </td>
                     </tr>

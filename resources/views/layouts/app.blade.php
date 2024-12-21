@@ -23,7 +23,7 @@
                         <a class="nav-link active" aria-current="page" href="#">Quản lý đọc giả</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Quản lý mượn trả sách</a>
+                        <a class="nav-link active" aria-current="page" href="{{ route('borrows.index') }}">Quản lý mượn trả sách</a>
                     </li>
                 </ul>
             </div>
