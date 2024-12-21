@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Borrow;
+use App\Models\Book;
+use App\Models\Reader;
 class BorrowController extends Controller
 {
     /**
@@ -19,8 +21,10 @@ class BorrowController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        return view('borrows.create');
+    {   
+        $books = Book::all();
+        $readers = Reader::all();
+        return view('borrows.create', compact('books', 'readers'));
     }
 
     /**
@@ -30,7 +34,7 @@ class BorrowController extends Controller
     {
         $request->validate([
             'book_id' => 'required|exists:books,id',
-            'user_id' => 'required|exists:users,id',
+            'reader_id' => 'required|exists:readers,id',
             'borrow_date' => 'required|date',
             'return_date' => 'required|date',
         ]);
@@ -38,7 +42,7 @@ class BorrowController extends Controller
         // Lưu vào cơ sở dữ liệu
         Borrow::create([
             'book_id' => $request->book_id,
-            'user_id' => $request->user_id,
+            'reader_id' => $request->reader_id,
             'borrow_date' => $request->borrow_date,
             'return_date' => $request->return_date,
         ]);
@@ -60,8 +64,10 @@ class BorrowController extends Controller
      */
     public function edit(string $id)
     {
-        $borrow = Borrow::findOrFail($id); 
-        return view('borrows.edit', compact('borrow'));
+        $borrow = Borrow::findOrFail($id);
+        $books = Book::all();
+        $readers = Reader::all();
+        return view('borrows.edit', compact('borrow', 'books', 'readers'));
     }
 
     /**
@@ -71,7 +77,7 @@ class BorrowController extends Controller
     {
         $request->validate([
             'book_id' => 'required|exists:books,id',
-            'user_id' => 'required|exists:users,id',
+            'reader_id' => 'required|exists:readers,id',
             'borrow_date' => 'required|date',
             'return_date' => 'required|date',
         ]);
@@ -80,7 +86,7 @@ class BorrowController extends Controller
         $borrow = Borrow::findOrFail($id);
         $borrow->update([
             'book_id' => $request->book_id,
-            'user_id' => $request->user_id,
+            'reader_id' => $request->reader_id,
             'borrow_date' => $request->borrow_date,
             'return_date' => $request->return_date,
         ]);
