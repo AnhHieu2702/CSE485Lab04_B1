@@ -2,23 +2,24 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Faker\Factory as Faker;
 use App\Models\Reader;
+use Faker\Factory as Faker;
+
 class ReaderSeeder extends Seeder
 {
-    
-
     public function run(): void
     {
         $faker = Faker::create();
-        for ($i = 0; $i < 15; $i++) {
-            $reader = Reader::create([
+
+        for ($i = 0; $i < 10; $i++) {
+            Reader::create([
                 'name' => $faker->name,
-                'birthday' => $faker->date(),
-                'address' =>  $faker->address,
+                'birthday' => $faker->date('Y-m-d', '-18 years'),
+                'address' => $faker->address,
                 'phone' => $faker->phoneNumber,
+                'created_at' => now(),
+                'updated_at' => now(),
             ]);
         }
     }
