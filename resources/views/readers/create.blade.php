@@ -3,6 +3,7 @@
 @section('content')
     <div class="container">
         <h1>Thêm mới Độc giả</h1>
+        
         <form action="{{ route('readers.store') }}" method="POST">
     @csrf
     <div class="form-group">
