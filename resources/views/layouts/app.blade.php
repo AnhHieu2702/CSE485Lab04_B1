@@ -17,13 +17,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Quản lý sách</a>
+                        <a class="nav-link active" aria-current="page" href="#">Book Management</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Quản lý đọc giả</a>
+                        <a class="nav-link active" aria-current="page" href="#">Reader Management</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Quản lý mượn trả sách</a>
+                        <a class="nav-link active" aria-current="page" href="#">Manager Borrows And Returns Books</a>
                     </li>
                 </ul>
             </div>
