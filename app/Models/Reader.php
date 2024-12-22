@@ -13,7 +13,7 @@ class Reader extends Model
         'phone',
     ];
     public function borrows() 
-{ 
-    return $this->hasMany(Borrow::class); 
-} 
+    { 
+        return $this->hasMany(Borrow::class); 
+    }
 }
