@@ -52,18 +52,12 @@ class ReaderController extends Controller
         return view('readers.show', compact('reader'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $reader = Reader::findOrFail($id);
         return view('readers.edit', compact('reader'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         $reader = Reader::findOrFail($id);
@@ -80,10 +74,6 @@ class ReaderController extends Controller
         return redirect()->route('readers.show', $reader->id)
             ->with('success', 'Reader updated successfully');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         $reader = Reader::findOrFail($id);
