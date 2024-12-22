@@ -10,6 +10,8 @@
                 <p><strong>Địa chỉ:</strong> {{ $reader->address }}</p>
                 <p><strong>Số điện thoại:</strong> {{ $reader->phone }}</p>
             </div>
+
+            
         </div>
         <a href="{{ route('readers.index') }}" class="btn btn-secondary mt-3">Quay lại</a>
     </div>
