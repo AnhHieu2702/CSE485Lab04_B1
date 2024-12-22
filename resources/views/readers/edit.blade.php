@@ -3,6 +3,8 @@
 @section('content')
     <div class="container">
         <h1>Sửa Độc giả</h1>
+
+    
         <form action="{{ route('readers.update', $reader->id) }}" method="POST">
             @csrf
             @method('PUT')
@@ -25,4 +27,5 @@
             <button type="submit" class="btn btn-primary">Lưu</button>
         </form>
     </div>
+    
 @endsection
