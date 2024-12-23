@@ -21,5 +21,6 @@ class Borrow extends Model
     {
         return $this->belongsTo(Reader::class);
     }
-
+    //
+    //
 }

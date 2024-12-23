@@ -103,4 +103,6 @@ class BorrowController extends Controller
         $borrow->delete();
         return redirect()->route('borrows.index')->with('success', 'Đã xóa bản ghi mượn!');
     }
+    //
+    //
 }
