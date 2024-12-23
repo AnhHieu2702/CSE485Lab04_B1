@@ -20,7 +20,7 @@ class BorrowSeeder extends Seeder
         for ($i = 0; $i < 15; $i++) {
             Borrow::create([
                 'reader_id' => $faker->randomElement($readerIds), // Chọn ID hợp lệ từ bảng readers
-            'book_id' => $faker->randomElement($bookIds),  
+                'book_id' => $faker->randomElement($bookIds),  
                 'borrow_date' => $faker->date(),
                 'return_date' => $faker->date(),
                 'status' => $faker->randomElement([0, 1]),
