@@ -20,6 +20,7 @@
                     <th>Người mượn</th>
                     <th>Ngày mượn</th>
                     <th>Ngày trả</th>
+                    <th>Trạng thái</th> <!-- Cột mới -->
                     <th>Hành động</th>
                 </tr>
             </thead>
@@ -31,6 +32,13 @@
                         <td>{{ $borrow->reader->name }}</td>
                         <td>{{ $borrow->borrow_date }}</td>
                         <td>{{ $borrow->return_date }}</td>
+                        <td>
+                            @if ($borrow->status == 1)
+                                <span class="badge bg-success">Đang mượn</span>
+                            @else
+                                <span class="badge bg-secondary">Đã trả</span>
+                            @endif
+                        </td>
                         <td>
                             <a href="{{ route('borrows.show', $borrow->id) }}" class="btn btn-info">Xem</a>
                             <a href="{{ route('borrows.edit', $borrow->id) }}" class="btn btn-warning">Chỉnh sửa</a>
@@ -46,4 +54,3 @@
         </table>
     </div>
 @endsection
-//

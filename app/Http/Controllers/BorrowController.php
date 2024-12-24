@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Borrow;
 use App\Models\Book;
 use App\Models\Reader;
+
 class BorrowController extends Controller
 {
     /**
@@ -21,7 +22,7 @@ class BorrowController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {   
+    {
         $books = Book::all();
         $readers = Reader::all();
         return view('borrows.create', compact('books', 'readers'));
@@ -37,6 +38,7 @@ class BorrowController extends Controller
             'reader_id' => 'required|exists:readers,id',
             'borrow_date' => 'required|date',
             'return_date' => 'required|date',
+            'status' => 'required|boolean',
         ]);
 
         // Lưu vào cơ sở dữ liệu
@@ -45,6 +47,7 @@ class BorrowController extends Controller
             'reader_id' => $request->reader_id,
             'borrow_date' => $request->borrow_date,
             'return_date' => $request->return_date,
+            'status' => $request->status,
         ]);
 
         return redirect()->route('borrows.index')->with('success', 'Mượn sách thành công!');
@@ -55,7 +58,7 @@ class BorrowController extends Controller
      */
     public function show(string $id)
     {
-        $borrow = Borrow::findOrFail($id); 
+        $borrow = Borrow::findOrFail($id);
         return view('borrows.show', compact('borrow'));
     }
 
@@ -80,15 +83,17 @@ class BorrowController extends Controller
             'reader_id' => 'required|exists:readers,id',
             'borrow_date' => 'required|date',
             'return_date' => 'required|date',
+            'status' => 'required|boolean',
         ]);
 
-    
+
         $borrow = Borrow::findOrFail($id);
         $borrow->update([
             'book_id' => $request->book_id,
             'reader_id' => $request->reader_id,
             'borrow_date' => $request->borrow_date,
             'return_date' => $request->return_date,
+            'status' => $request->status,
         ]);
 
         return redirect()->route('borrows.index')->with('success', 'Cập nhật thành công!');
@@ -104,5 +109,4 @@ class BorrowController extends Controller
         return redirect()->route('borrows.index')->with('success', 'Đã xóa bản ghi mượn!');
     }
     //
-    
 }
